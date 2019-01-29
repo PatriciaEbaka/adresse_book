@@ -1,7 +1,17 @@
 {
+  "name": "address-book",
+  "version": "1.0.0",
+  "description": "Address book application",
+  "main": "index.js",
+  "author": "John Doe <john@acmecorp.tld>",
+  "license": "MIT",
+  "scripts": {
+    "cucumber": "superstatic -p 3000 2> /dev/null & cucumber-js; lsof -ti tcp:3000 | xargs kill"
+  },
   "devDependencies": {
     "chai": "^4.2.0",
     "cucumber": "^5.1.0",
+    "mocha": "^5.2.0",
     "puppeteer": "^1.11.0",
     "superstatic": "^6.0.4"
   }
