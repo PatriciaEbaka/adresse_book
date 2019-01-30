@@ -41,6 +41,7 @@ const renderContacts = () => {
       div.innerHTML = '<p>You have no contacts in your address book</p>' 
     }
   }
+  
 document.addEventListener('DOMContentLoaded', () => {
     renderContacts() // Add this line at the top of this function
     // Select form object from the DOM
@@ -74,7 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   
       console.log(`Saving the following contact: ${JSON.stringify(contact)}`)
-      storage.setItem('contacts', JSON.stringify([contact]))
+      let contacts = JSON.parse(storage.getItem('contacts')) || []
+      contacts.push(contact)
+      storage.setItem('contacts', JSON.stringify(contacts))
       renderContacts() // Add it again after we store the contact
 
     })
