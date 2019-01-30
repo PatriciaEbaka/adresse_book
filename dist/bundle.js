@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nconsole.log(\"Hello Students!\");\nconsole.log(\"YAY\");\n\n//# sourceURL=webpack:///./src/app.js?");
+eval("\n\ndocument.addEventListener('DOMContentLoaded', function () {\n  // Select form object from the DOM\n  var addContactForm = document.querySelector('.new-contact-form');\n\n  // Register an event to listen for form submission\n  addContactForm.addEventListener('submit', function (event) {\n    // Disable default behavior when submitting form\n    event.preventDefault();\n\n    // Get all inputs elements from the form\n    var _addContactForm$eleme = addContactForm.elements,\n        name = _addContactForm$eleme.name,\n        email = _addContactForm$eleme.email,\n        phone = _addContactForm$eleme.phone,\n        company = _addContactForm$eleme.company,\n        notes = _addContactForm$eleme.notes,\n        twitter = _addContactForm$eleme.twitter;\n\n    // Create contact object\n\n    var contact = {\n      id: Date.now(),\n      name: name.value,\n      email: email.value,\n      phone: phone.value,\n      company: company.value,\n      notes: notes.value,\n      twitter: twitter.value\n    };\n\n    console.log('Saving the following contact: ' + JSON.stringify(contact));\n  });\n});\n\n//# sourceURL=webpack:///./src/app.js?");
 
 /***/ })
 
