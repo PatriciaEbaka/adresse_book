@@ -8,8 +8,8 @@ class AddressBookWorld {
   constructor() {}
 
   // Open the home page using puppeteer
-  async openHomePage()
-}
+  async openHomePage() {
+
     this.browser = await puppeteer.launch({headless: false, slowmo: 100})
     this.page = await this.browser.newPage()
     await this.page.goto(HOME_PAGE)
@@ -18,6 +18,14 @@ class AddressBookWorld {
   async closeHomePage() {
     await this.browser.close()
   }
+
+  async pageHasTextContent(expectedContent) {
+    const pageContent = await this.page.content()
+    const actualContent = pageContent.match(expectedContent)[0]
+
+    expect(actualContent).to.be.eq(expectedContent)
+  }
 }
 
 setWorldConstructor(AddressBookWorld)
+
